@@ -34,7 +34,7 @@ curl -X POST \
   https://generator3.swagger.io/api/generate \
   -H 'content-type: application/json' \
   -d '{
-  "specURL" : "https://raw.githubusercontent.com/w3c-ccg/vc-api/main/issuer.yml",
+  "specURL" : "https://raw.githubusercontent.com/w3c-ccg/vc-api/main/versions/v0.0.2/vc-api.yml",
   "lang" : "nodejs-server",
   "type" : "SERVER",
   "codegenVersion" : "V3"

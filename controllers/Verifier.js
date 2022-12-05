@@ -1,10 +1,10 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Credentials = require('../service/CredentialsService');
+var Verifier = require('../service/VerifierService');
 
-module.exports.issueCredential = function issueCredential (req, res, next, body) {
-  Credentials.issueCredential(body)
+module.exports.verifyCredential = function verifyCredential (req, res, next, body) {
+  Verifier.verifyCredential(body)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -13,8 +13,8 @@ module.exports.issueCredential = function issueCredential (req, res, next, body)
     });
 };
 
-module.exports.updateCredentialStatus = function updateCredentialStatus (req, res, next, body) {
-  Credentials.updateCredentialStatus(body)
+module.exports.verifyPresentation = function verifyPresentation (req, res, next, body) {
+  Verifier.verifyPresentation(body)
     .then(function (response) {
       utils.writeJson(res, response);
     })
