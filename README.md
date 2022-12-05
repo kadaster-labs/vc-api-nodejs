@@ -21,8 +21,6 @@ docker build -t vc-api-nodejs:latest .
 docker run -d -p 8080:8080 -it --rm vc-api-nodejs:latest
 ```
 
---name solid-vc-pwa
-
 This project leverages the mega-awesome [swagger-tools](https://github.com/apigee-127/swagger-tools) middleware which does most all the work.
 
 ## Swagger generated server
