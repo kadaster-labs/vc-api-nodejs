@@ -6,9 +6,10 @@
  * Issues a credential and returns it in the response body.
  *
  * body IssueCredentialRequest Parameters for issuing the credential. (optional)
+ * agency String The government agency the user requires a VC from
  * returns IssueCredentialResponse
  **/
-exports.issueCredential = function(body) {
+exports.issueCredential = function(body,agency) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {

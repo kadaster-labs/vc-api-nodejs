@@ -3,8 +3,8 @@
 var utils = require('../utils/writer.js');
 var IssuerCredentials = require('../service/IssuerCredentialsService');
 
-module.exports.issueCredential = function issueCredential (req, res, next, body) {
-  IssuerCredentials.issueCredential(body)
+module.exports.issueCredential = function issueCredential (req, res, next, body, agency) {
+  IssuerCredentials.issueCredential(body, agency)
     .then(function (response) {
       utils.writeJson(res, response);
     })

@@ -296,13 +296,25 @@ paths:
         "500":
           description: error!
       x-swagger-router-controller: HolderPresentations
-  /credentials/issue:
+  /{agency}/credentials/issue:
     post:
       tags:
       - issuer_Credentials
       summary: Issues a credential and returns it in the response body.
       description: Issues a credential and returns it in the response body.
       operationId: issueCredential
+      parameters:
+      - name: agency
+        in: path
+        description: The government agency the user requires a VC from
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          enum:
+          - Kadaster
+          - BRP
       requestBody:
         description: Parameters for issuing the credential.
         content:

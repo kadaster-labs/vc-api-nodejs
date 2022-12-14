@@ -236,7 +236,7 @@ paths:
           description: invalid input!
         "500":
           description: error!
-  /credentials/issue:
+  /{agency}/credentials/issue:
     post:
       summary: Issues a credential and returns it in the response body.
       tags:
@@ -249,6 +249,16 @@ paths:
             schema:
               $ref: "#/components/schemas/IssueCredentialRequest"
         description: Parameters for issuing the credential.
+      parameters:
+        - in: path
+          name: agency
+          required: true
+          schema:
+            type: string
+            enum:
+              - Kadaster
+              - BRP
+          description: The government agency the user requires a VC from
       responses:
         "201":
           description: Credential successfully issued!
