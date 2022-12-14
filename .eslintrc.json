@@ -1,0 +1,25 @@
+{
+  "env": {
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["airbnb-base", "prettier"],
+  "overrides": [
+    {
+      "files": ["**/*.js"]
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "func-names": ["error", "never"]
+  }
+}

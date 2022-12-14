@@ -1,14 +1,12 @@
-'use strict';
+const utils = require("../utils/writer");
+const VerifierCredentials = require("../service/VerifierCredentialsService");
 
-var utils = require('../utils/writer.js');
-var VerifierCredentials = require('../service/VerifierCredentialsService');
-
-module.exports.verifyCredential = function verifyCredential (req, res, next, body) {
+module.exports.verifyCredential = function (req, res, next, body) {
   VerifierCredentials.verifyCredential(body)
-    .then(function (response) {
+    .then((response) => {
       utils.writeJson(res, response);
     })
-    .catch(function (response) {
+    .catch((response) => {
       utils.writeJson(res, response);
     });
 };

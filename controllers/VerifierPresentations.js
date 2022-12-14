@@ -1,14 +1,12 @@
-'use strict';
+const utils = require("../utils/writer");
+const VerifierPresentations = require("../service/VerifierPresentationsService");
 
-var utils = require('../utils/writer.js');
-var VerifierPresentations = require('../service/VerifierPresentationsService');
-
-module.exports.verifyPresentation = function verifyPresentation (req, res, next, body) {
+module.exports.verifyPresentation = function (req, res, next, body) {
   VerifierPresentations.verifyPresentation(body)
-    .then(function (response) {
+    .then((response) => {
       utils.writeJson(res, response);
     })
-    .catch(function (response) {
+    .catch((response) => {
       utils.writeJson(res, response);
     });
 };

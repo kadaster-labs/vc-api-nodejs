@@ -1,11 +1,16 @@
 {
   "name": "vc-api",
-  "version": "0.0.2-unstable",
+  "version": "0.0.3-unstable",
   "description": "This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).",
   "main": "index.js",
   "scripts": {
     "prestart": "npm install",
-    "start": "node index.js"
+    "start": "node index.js",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext js",
+    "format": "prettier --write .",
+    "test-all": "npm run check-format && npm run check-lint",
+    "prepare": "husky install"
   },
   "keywords": [
     "swagger"
@@ -15,7 +20,16 @@
   "dependencies": {
     "connect": "^3.2.0",
     "cors": "^2.8.5",
+    "express": "^4.18.2",
     "js-yaml": "^3.3.0",
     "oas3-tools": "^2.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.0",
+    "prettier": "2.8.1"
   }
 }
