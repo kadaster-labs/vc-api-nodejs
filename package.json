@@ -19,8 +19,12 @@
   "license": "Unlicense",
   "private": true,
   "dependencies": {
+    "@digitalbazaar/ed25519-signature-2020": "^5.0.0",
+    "@digitalbazaar/ed25519-verification-key-2020": "^4.1.0",
+    "@digitalbazaar/security-document-loader": "^2.0.0",
     "@oas-tools/core": "^3.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jsonld-signatures": "^11.0.0"
   },
   "devDependencies": {
     "eslint": "^8.29.0",
