@@ -1,21 +1,6 @@
 /*!
  * Copyright (c) 2021 Digital Bazaar, Inc. All rights reserved.
  */
-export const controller = "http://localhost:3001/kadaster_publickey.json";
-export const kadasterPublickey = {
-  "@context": "https://w3id.org/security/v2",
-  id: controller,
-  assertionMethod: [
-    {
-      "@context": "https://w3id.org/security/suites/ed25519-2020/v1",
-      type: "Ed25519VerificationKey2020",
-      controller,
-      id: "http://localhost:3001/kadaster_publickey.json#z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp",
-      publicKeyMultibase: "z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp",
-    },
-  ],
-};
-
 export const v1Controller = "https://www.w3.org/2018/credentials/examples/v1";
 export const v1Examples = {
   "@context": [

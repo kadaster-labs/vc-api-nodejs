@@ -8,6 +8,7 @@ import { signCredential } from "../utils/signing.js";
  * returns IssueCredentialResponse
  * */
 export async function issueCredential(_body, _agency) {
+  const controller = "http://localhost:8080/keys/kadaster.json";
   const examples = {};
 
   const credential = {
@@ -17,7 +18,7 @@ export async function issueCredential(_body, _agency) {
     ],
     id: "https://kadaster.nl/credentials/3732",
     type: ["VerifiableCredential", "UniversityDegreeCredential"],
-    issuer: "http://localhost:3001/kadaster_publickey.json",
+    issuer: controller,
     issuanceDate: "2020-03-16T22:37:26.544Z",
     credentialSubject: {
       id: "did:example:123",
@@ -28,7 +29,7 @@ export async function issueCredential(_body, _agency) {
     },
   };
 
-  const verifiableCredential = await signCredential(credential);
+  const verifiableCredential = await signCredential(credential, controller);
 
   examples["application/json"] = {
     verifiableCredential,

@@ -11,9 +11,7 @@ const {
   purposes: { AssertionProofPurpose },
 } = jsigs;
 
-export async function signCredential(unsignedCredential) {
-  const controller = "http://localhost:3001/kadaster_publickey.json";
-
+export async function signCredential(unsignedCredential, controller) {
   const keyPair = await Ed25519VerificationKey2020.generate({
     controller,
     // Make sure the keyPair.publicKeyMultibase is updated in issuer.json
