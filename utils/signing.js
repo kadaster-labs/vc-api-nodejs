@@ -11,12 +11,11 @@ const {
   purposes: { AssertionProofPurpose },
 } = jsigs;
 
-export async function signCredential(unsignedCredential, controller) {
+export async function signCredential(issuer, unsignedCredential) {
   const keyPair = await Ed25519VerificationKey2020.generate({
-    controller,
+    controller: issuer.controller,
     // Make sure the keyPair.publicKeyMultibase is updated in issuer.json
-    // It shouldn't change, as long as seed is kept the same
-    seed: Buffer.alloc(32).fill(0),
+    seed: Buffer.alloc(32).fill(issuer.seed),
   });
 
   console.log(
@@ -24,7 +23,7 @@ export async function signCredential(unsignedCredential, controller) {
   );
 
   const suite = new Ed25519Signature2020({ key: keyPair });
-  suite.date = "2010-01-01T19:23:24Z";
+  suite.date = new Date();
 
   const signedCredential = await jsigs.sign(unsignedCredential, {
     suite,
