@@ -1,6 +1,5 @@
 {
   "env": {
-    "commonjs": true,
     "es2021": true,
     "node": true
   },
@@ -11,7 +10,8 @@
     }
   ],
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
   "rules": {
     "no-unused-vars": [
@@ -20,6 +20,17 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "func-names": ["error", "never"]
+    "func-names": ["error", "never"],
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      {
+        "pattern": {
+          "js": "always",
+          "json": "never"
+        }
+      }
+    ],
+    "no-console": "off"
   }
 }

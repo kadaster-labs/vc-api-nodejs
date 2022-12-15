@@ -1,23 +1,10 @@
 /**
- * Deletes a credential or verifiable credential by ID
- *
- * id id
- * no response value expected for this operation
- * */
-exports.deleteCredential = function (_id) {
-  return new Promise((resolve, _reject) => {
-    resolve();
-  });
-};
-
-/**
- * Derives a credential and returns it in the response body.
  * Derives a credential and returns it in the response body.
  *
  * body DeriveCredentialRequest Parameters for deriving the credential. (optional)
  * returns VerifiableCredential
  * */
-exports.deriveCredential = function (_body) {
+export function deriveCredential(_body) {
   return new Promise((resolve, _reject) => {
     const examples = {};
     examples["application/json"] = {
@@ -53,40 +40,4 @@ exports.deriveCredential = function (_body) {
       resolve();
     }
   });
-};
-
-/**
- * Gets a credential or verifiable credential by ID
- *
- * id id
- * returns inline_response_200
- * */
-exports.getCredential = function (_id) {
-  return new Promise((resolve, _reject) => {
-    const examples = {};
-    examples["application/json"] = "";
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-};
-
-/**
- * Gets list of credentials or verifiable credentials
- *
- * type List  (optional)
- * returns List
- * */
-exports.getCredentials = function (_type) {
-  return new Promise((resolve, _reject) => {
-    const examples = {};
-    examples["application/json"] = ["", ""];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-};
+}

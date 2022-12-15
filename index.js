@@ -1,45 +1,29 @@
-const path = require("path");
-const http = require("http");
-const express = require("express");
-const cors = require("cors");
+import server from "./server.js";
 
-const oas3Tools = require("oas3-tools");
+const env = process.env.NODE_ENV ? process.env.NODE_ENV : "production";
 
-const serverPort = 8080;
-
-// swaggerRouter configuration
-const options = {
-  routing: {
-    controllers: path.join(__dirname, "./controllers"),
-  },
-};
-
-const expressAppConfig = oas3Tools.expressAppConfig(
-  path.join(__dirname, "api/openapi.yaml"),
-  options
-);
-const openApiApp = expressAppConfig.getApp();
-
-const app = express();
-
-// Add headers
-app.use(/.*/, cors());
-
-// eslint-disable-next-line no-underscore-dangle, no-plusplus
-for (let i = 2; i < openApiApp._router.stack.length; i++) {
-  // eslint-disable-next-line no-underscore-dangle
-  app._router.stack.push(openApiApp._router.stack[i]);
-}
-
-// Initialize the Swagger middleware
-http.createServer(app).listen(serverPort, () => {
-  console.log(
-    "Your server is listening on port %d (http://localhost:%d)",
-    serverPort,
-    serverPort
-  );
-  console.log(
-    "Swagger-ui is available on http://localhost:%d/docs",
-    serverPort
-  );
+server.deploy(env).catch((err) => {
+  console.log(err);
 });
+
+// quit on ctrl-c when running docker in terminal
+process.on("SIGINT", () => {
+  console.log(
+    `[${new Date().toISOString()}] Got SIGINT (aka ctrl-c in docker). Graceful shutdown`
+  );
+  // eslint-disable-next-line no-use-before-define
+  shutdown();
+});
+
+// quit properly on docker stop
+process.on("SIGTERM", () => {
+  console.log(
+    `[${new Date().toISOString()}] Got SIGTERM (docker container stop). Graceful shutdown`
+  );
+  // eslint-disable-next-line no-use-before-define
+  shutdown();
+});
+
+const shutdown = () => {
+  server.undeploy();
+};

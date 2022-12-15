@@ -1,11 +1,10 @@
 /**
  * Verifies a verifiableCredential and returns a verificationResult in the response body.
- * Verifies a verifiableCredential and returns a verificationResult in the response body.
  *
  * body VerifyCredentialRequest Parameters for verifying a verifiableCredential. (optional)
  * returns VerificationResult
  * */
-exports.verifyCredential = function (_body) {
+export function verifyCredential(_body) {
   return new Promise((resolve, _reject) => {
     const examples = {};
     examples["application/json"] = {
@@ -19,4 +18,4 @@ exports.verifyCredential = function (_body) {
       resolve();
     }
   });
-};
+}

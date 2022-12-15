@@ -10,7 +10,7 @@
  * body Presentations_verify_body Parameters for verifying a verifiablePresentation. (optional)
  * returns VerificationResult
  * */
-exports.verifyPresentation = function (_body) {
+export function verifyPresentation(_body) {
   return new Promise((resolve, _reject) => {
     const examples = {};
     examples["application/json"] = {
@@ -24,4 +24,4 @@ exports.verifyPresentation = function (_body) {
       resolve();
     }
   });
-};
+}

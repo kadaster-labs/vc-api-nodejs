@@ -1,59 +1,10 @@
 /**
- * Deletes a presentation or verifiable presentation by ID
- *
- * id id
- * no response value expected for this operation
- * */
-exports.deletePresentation = function (_id) {
-  return new Promise((resolve, _reject) => {
-    resolve();
-  });
-};
-
-/**
- * Gets a presentation or verifiable presentation by ID
- *
- * id id
- * returns inline_response_200_1
- * */
-exports.getPresentation = function (_id) {
-  return new Promise((resolve, _reject) => {
-    const examples = {};
-    examples["application/json"] = "";
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-};
-
-/**
- * Gets list of presentations or verifiable presentations
- *
- * type List  (optional)
- * returns List
- * */
-exports.getPresentations = function (_type) {
-  return new Promise((resolve, _reject) => {
-    const examples = {};
-    examples["application/json"] = ["", ""];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-};
-
-/**
- * Proves a presentation and returns it in the response body.
  * Proves a presentation and returns it in the response body.
  *
  * body ProvePresentationRequest Parameters for proving the presentation. (optional)
  * returns ProvePresentationResponse
  * */
-exports.provePresentation = function (_body) {
+export function provePresentation(_body) {
   return new Promise((resolve, _reject) => {
     const examples = {};
     examples["application/json"] = {
@@ -123,4 +74,4 @@ exports.provePresentation = function (_body) {
       resolve();
     }
   });
-};
+}
