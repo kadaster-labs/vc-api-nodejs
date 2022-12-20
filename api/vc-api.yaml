@@ -562,7 +562,6 @@ components:
           properties:
             _id:
               type: string
-      type: object
       description: A JSON-LD Verifiable Credential Issuer.
       example:
         _id: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd

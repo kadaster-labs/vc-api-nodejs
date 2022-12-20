@@ -556,7 +556,6 @@ components:
         verifiablePresentation:
           $ref: "#/components/schemas/VerifiablePresentation"
     Issuer:
-      type: object
       description: A JSON-LD Verifiable Credential Issuer.
       oneOf:
         - type: string
