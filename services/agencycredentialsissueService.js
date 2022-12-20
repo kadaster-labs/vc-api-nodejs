@@ -23,17 +23,18 @@ export class Kadaster extends Issuer {
     return {
       "@context": [
         "https://www.w3.org/2018/credentials/v1",
-        "https://www.w3.org/2018/credentials/examples/v1",
+        "http://localhost:8080/contexts/kadasterCredentials.json",
       ],
       id: "https://kadaster.nl/credentials/3732",
-      type: ["VerifiableCredential", "UniversityDegreeCredential"],
+      type: ["VerifiableCredential", "EigendomCredential"],
       issuer: this.controller,
       issuanceDate: "2020-03-16T22:37:26.544Z",
       credentialSubject: {
-        id: "did:example:123",
-        degree: {
-          type: "BachelorDegree",
-          name: "Bachelor of Science and Arts",
+        id: "did:brpperson:345",
+        type: "NatuurlijkPersoon",
+        eigendom: {
+          type: "Eigendom",
+          perceel: "https://data.kkg.kadaster.nl/id/perceel/10020263270000",
         },
       },
     };
