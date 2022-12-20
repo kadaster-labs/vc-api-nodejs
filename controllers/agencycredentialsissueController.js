@@ -14,6 +14,15 @@ export async function issueCredential(req, res) {
     });
   }
 
-  const response = await service.issueCredential(issuer, req.body);
-  res.send(response);
+  try {
+    const response = await service.issueCredential(issuer, req.body);
+    res.status(201);
+    res.send(response);
+  } catch (error) {
+    res.status(500);
+    res.send({
+      message: "Internal server error",
+      error,
+    });
+  }
 }
